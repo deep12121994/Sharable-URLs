@@ -9,13 +9,17 @@ function submit(){
   var year_val = document.getElementById("year").value;
   console.log(year_val);
 
-  if(name_val !== "")
+  if(name_val !== "" && year_val === "")
   {
     temp_url += "?name="+name_val;
   }
-  if (year_val !== "")
+  if (year_val !== "" && name_val === "")
   {
-    temp_url += "&year="+year_val;
+    temp_url += "?year="+year_val;
+  }
+
+  if(name_val !== "" && year_val !== ""){
+    temp_url += "?name="+name_val + "&" + "year="+year_val;
   }
 
   document.getElementById("url").innerText = temp_url;
